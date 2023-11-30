@@ -1,6 +1,7 @@
 import tkinter as tk
 import requests
 import xml.dom.minidom
+import tkinter.messagebox as messagebox
 
 class VinDecoderApp:
     def __init__(self, root):
@@ -104,11 +105,7 @@ class VinDecoderApp:
             entry.configure(state="readonly")
 
     def display_error_message(self, message):
-        for entry in self.result_fields.values():
-            entry.configure(state="normal")
-            entry.delete(0, tk.END)
-            entry.insert(0, message)
-            entry.configure(state="readonly")
+        messagebox.showinfo("Error", message)
 
     def clear_entries(self):
         # Clear VIN entry and result fields
